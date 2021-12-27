@@ -2,7 +2,7 @@
 ## Requirements
   * Python 3.x
   * pytorch
-  * pandas
+  * numpy
 ## Usage
   cd src
   * Run the script ./run.sh, example: ./run.sh 0.6
