@@ -26,8 +26,7 @@ def train_model(network):
     user2index, business2index, users, businesses = data_map(network)
     train_pairs = get_mapped_data(network, user2index, business2index)
     
-    # user_paths = ['ubu_{}'.format(args.ratio), 'ubcibu_{}'.format(args.ratio), 'ubcabu_{}'.format(args.ratio), 'ucou']
-    user_paths = ['ubu_{}'.format(args.ratio), 'ucou']
+    user_paths = ['ubu_{}'.format(args.ratio), 'ucou', 'uu']
     business_paths = ['bub_{}'.format(args.ratio), 'bcib', 'bcab']
     
     user_paths = [ '{}/{}.txt'.format('../yelp', path)  for path in user_paths]
