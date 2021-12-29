@@ -79,7 +79,7 @@ class Embedding(nn.Module):
 
 class HRP_MG(nn.Module) :
     def __init__(self, num_u, num_i, sub_embedding_size, base_embedding_size, final_embedding_size, num_layer_u,
-        num_layer_i, dim_a, lamb, p=0, alpha=0.8):
+        num_layer_i, dim_a, lamb, p=0, alpha=0.0): 
         super(HRP_MG, self).__init__()
 
         self.num_layer_u = num_layer_u
@@ -94,7 +94,7 @@ class HRP_MG(nn.Module) :
         self.p = p
         self.alpha = alpha
 
-        self.mlp = nn.Sequential(nn.Linear(2 * final_embedding_size, 64), nn.Linear(64, 1))
+        self.mlp = nn.Sequential(nn.Linear(2 * final_embedding_size, 64), nn.Linear(64, 32), nn.Linear(32, 1))
         
         self.user_bias = Parameter(torch.zeros(num_u))
         self.item_bias = Parameter(torch.zeros(num_i))
