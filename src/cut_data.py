@@ -1,5 +1,5 @@
 #!/user/bin/python
-import random
+from numpy import random
 import argparse
 from utils import setup_seed, load_data
 
@@ -8,7 +8,6 @@ parser.add_argument('--ratio', type = float)
 parser.add_argument('--seed', type = int, default=400)
 
 args = parser.parse_args()
-
 setup_seed(args.seed)
 
 train_rate = args.ratio
@@ -18,6 +17,7 @@ valid_path = '../yelp/ub_{}_validate.txt'.format(args.ratio)
 test_path = '../yelp/ub_{}_test.txt'.format(args.ratio)
 
 R = load_data(input_path)
+
 random.shuffle(R)
 
 train_num = int(len(R) * train_rate)
