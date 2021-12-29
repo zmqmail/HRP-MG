@@ -55,7 +55,7 @@ def train_model(network):
     best_rmse = 9999
     best_mae = 9999
     
-    cur_patience = 0
+    cur_p = 0
     for epoch in range(epochs):
 
         random.shuffle(train_pairs)

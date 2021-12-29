@@ -23,7 +23,7 @@ class Attention(nn.Module):
             dim=1,
         ).unsqueeze(1)
         node_type_embed = torch.matmul(attention, node_type_embed.squeeze())
-        return node_type_embed
+        return torch.relu(node_type_embed)
 
 class Embedding(nn.Module):
     def __init__(
@@ -94,7 +94,7 @@ class HRP_MG(nn.Module) :
         self.p = p
         self.alpha = alpha
 
-        self.mlp = nn.Sequential(nn.Linear(2 * final_embedding_size, 128), nn.Linear(128, 1))
+        self.mlp = nn.Sequential(nn.Linear(2 * final_embedding_size, 64), nn.Linear(64, 1))
         
         self.user_bias = Parameter(torch.zeros(num_u))
         self.item_bias = Parameter(torch.zeros(num_i))
