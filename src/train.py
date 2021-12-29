@@ -33,10 +33,7 @@ def train_model(network):
     business_paths = [ '{}/{}.txt'.format('../yelp', path)  for path in business_paths]
     
     user_multilayer_networks = [get_mapped_data(load_data(path), user2index, user2index) for path in user_paths]
-    print('loaded meta-paths: %s' % (','.join(user_paths)))
-    
     business_multilayer_networks = [get_mapped_data(load_data(path), business2index, business2index) for path in business_paths]
-    print('loaded meta-paths: %s' % (','.join(business_paths)))
     
     user_neighbors = sample_neighbor(user_multilayer_networks, num_sample, len(users))
     business_neighbors = sample_neighbor(business_multilayer_networks, num_sample, len(businesses))  
